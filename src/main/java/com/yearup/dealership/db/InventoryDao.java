@@ -28,14 +28,14 @@ public class InventoryDao {
 
     public void removeVehicleFromInventory(String vin) {
         // TODO: Implement the logic to remove a vehicle from the inventory
-        try Connection connection = dataSource.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("")) {
-         preparedStatement.setString(1,vin);
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("")) {
+            preparedStatement.setString(1, vin);
 
             int rows = preparedStatement.executeUpdate();
-            System.out.println("Rows Deleted:" +rows);
+            System.out.println("Rows Deleted:" + rows);
 
-    }    catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }}
