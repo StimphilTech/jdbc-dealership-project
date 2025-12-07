@@ -29,7 +29,7 @@ public class InventoryDao {
     public void removeVehicleFromInventory(String vin) {
         // TODO: Implement the logic to remove a vehicle from the inventory
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Vehicle WHERE vin = ?")) {
             preparedStatement.setString(1, vin);
 
             int rows = preparedStatement.executeUpdate();
