@@ -41,7 +41,7 @@ public class VehicleDao {
         // TODO: Implement the logic to remove a vehicle
         try (Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("DELETE From vehicles where VIN = ?")) {
-preparedStatement.setString(1,VIN);
+            preparedStatement.setString(1,VIN);
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -112,7 +112,7 @@ preparedStatement.setString(1,VIN);
         // TODO: Implement the logic to search vehicles by color
         List<Vehicle> byColor = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("")){
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM vehicles WHERE color = ?")){
               preparedStatement.setString(1,color);
 
             try (ResultSet results = preparedStatement.executeQuery()){
@@ -133,7 +133,7 @@ preparedStatement.setString(1,VIN);
         // TODO: Implement the logic to search vehicles by mileage range
         List<Vehicle> mileageRange = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Vehicle WHERE mileage BETWEEN ? AND ?")){
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Vehicles WHERE odometer BETWEEN ? AND ?")){
             preparedStatement.setInt(1,minMileage);
             preparedStatement.setInt(2,maxMileage);
 
@@ -153,7 +153,7 @@ preparedStatement.setString(1,VIN);
         // TODO: Implement the logic to search vehicles by type
         List<Vehicle> byType = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Vehicle WHERE type = ?")){
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Vehicles WHERE vehicletype = ?")){
             preparedStatement.setString(1,type);
 
             try (ResultSet results = preparedStatement.executeQuery()){
