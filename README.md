@@ -67,4 +67,5 @@ List resources such as tutorials, articles, or documentation that helped you dur
 Individual Project by Monalisa Stimphil
 
 
-## Special Thanks
+## Special Thanks 
+I give a special thanks to my instructor, Raymond, and the Student Tutors who are helping me understand Java.  
